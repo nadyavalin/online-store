@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import fileUpload from "express-fileupload";
+
 import { sequelize } from "./db.js";
 import {
   User,
@@ -13,15 +16,23 @@ import {
   TypeBrand,
 } from "./models/models.js";
 
+import router from "./routes/index.js";
+import errorHandler from "./middleware/ErrorHandlingMiddleware.js";
+import { fileURLToPath } from "url";
+
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(cors());
 app.use(express.json());
-// app.get("/", (request, response) => {
-//   response.status(200).json({ message: "WORKING!!!" });
-// });
+app.use(express.static(path.resolve(__dirname, "static")));
+app.use(fileUpload({}));
+app.use("/api", router);
+app.use(errorHandler);
 
 const start = async () => {
   try {
