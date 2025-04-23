@@ -5,4 +5,4 @@ export default function (error, request, response, next) {
     return response.status(error.status).json({ message: error.message });
   }
   return response.status(500).json({ message: "Unexpected error!" });
-};
+}
