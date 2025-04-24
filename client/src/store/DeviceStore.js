@@ -21,6 +21,7 @@ export default class DeviceStore {
         price: 100000,
         rating: 5,
         img: `./img/iPhone.jpg`,
+        brandId: 2,
       },
       {
         id: 2,
@@ -84,6 +85,7 @@ export default class DeviceStore {
   }
 
   get devices() {
+    console.log("Devices:", this._devices);
     return this._devices;
   }
 
