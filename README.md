@@ -46,3 +46,5 @@ run `git clone https://github.com/nadyavalin/online-store.git`
 - `npm run dev` run project with Vite in develop mode
 - `npm run build` builds project with Vite in production mode
 - `npm run lint` checks ESLint errors
+- `npm run format` formats all files with Prettier
+- `npm run ci:format` checks if files are formatted
