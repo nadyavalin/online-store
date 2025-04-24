@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import { observer } from "mobx-react-lite";
 
-const NavBar = () => {
+export const NavBar = observer(() => {
   const { user } = useContext(Context);
 
   return (
@@ -18,26 +18,15 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           {user.isAuth ? (
-            <Nav
-              className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
+            <Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
               <Button variant="outline-dark">Admin Panel</Button>
               <Button variant="outline-dark" className="ms-2" onClick={() => user.setIsAuth(false)}>
                 Log out
               </Button>
             </Nav>
           ) : (
-            <Nav
-              className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Button
-                variant="outline-dark"
-                onClick={() => user.setIsAuth(true)}
-              >
+            <Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+              <Button variant="outline-dark" onClick={() => user.setIsAuth(true)}>
                 Login
               </Button>
             </Nav>
@@ -46,6 +35,4 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
-};
-
-export default observer(NavBar);
+});

@@ -21,13 +21,11 @@ const Auth = () => {
             <Col xs="auto">
               {isLogin ? (
                 <div>
-                  Don't have an account?{" "}
-                  <NavLink to={REGISTRATION_ROUTE}>Sign up!</NavLink>
+                  Don't have an account? <NavLink to={REGISTRATION_ROUTE}>Sign up!</NavLink>
                 </div>
               ) : (
                 <div>
-                  Do you already have an account?{" "}
-                  <NavLink to={LOGIN_ROUTE}>Login!</NavLink>
+                  Do you already have an account? <NavLink to={LOGIN_ROUTE}>Login!</NavLink>
                 </div>
               )}
             </Col>
