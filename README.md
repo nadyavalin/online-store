@@ -31,16 +31,18 @@ run `git clone https://github.com/nadyavalin/online-store.git`
 ### How to run server locally:
 1. go to `server` folder
 2. run `npm install` for installing necessary node modules
-3. run `npm run dev` for running server part project in develop mode
+3. run `npm run dev` for running server part project with Nodemon in develop mode
 4. to check the server operation (without frontend part), use Postman
 
 #### Available scripts:
-- `npm run dev` run server in develop mode
+`npm run dev` run server with Nodemon in develop mode
 
 ### How to run client part locally:
-![Static Badge](https://img.shields.io/badge/in_progress-ff4444)
+1. go to `client` folder
+2. run `npm install` for installing necessary node modules
+3. run `npm run dev` for running project with Vite in develop mode
 
 #### Available scripts:
-- `npm run dev` run project in develop mode
+- `npm run dev` run project with Vite in develop mode
 - `npm run build` builds project with Vite in production mode
 - `npm run lint` checks ESLint errors
