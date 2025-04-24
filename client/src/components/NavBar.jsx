@@ -13,7 +13,7 @@ export const NavBar = observer(() => {
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
+      <Container>
         <NavLink to={SHOP_ROUTE}>buyDevice</NavLink>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

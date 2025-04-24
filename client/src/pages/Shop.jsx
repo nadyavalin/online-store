@@ -1,12 +1,19 @@
 import Container from "react-bootstrap/esm/Container";
+import { Col, Row } from "react-bootstrap";
+import { TypeBar } from "../components/TypeBar";
+import { BrandBar } from "../components/BrandBar";
 
 const Shop = () => {
   return (
-    <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{ height: `${window.innerHeight - 100}px` }}
-    >
-      SHOP
+    <Container>
+      <Row className="mt-2">
+        <Col md={3}>
+          <TypeBar />
+        </Col>
+        <Col md={9}>
+          <BrandBar />
+        </Col>
+      </Row>
     </Container>
   );
 };

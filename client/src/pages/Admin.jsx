@@ -1,7 +1,7 @@
 import React from "react";
 
-const Basket = () => {
-  return <div>Basket page</div>;
+const Admin = () => {
+  return <div>Admin page</div>;
 };
 
-export default Basket;
+export default Admin;
