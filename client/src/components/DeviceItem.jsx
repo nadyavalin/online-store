@@ -12,7 +12,7 @@ export const DeviceItem = ({ device }) => {
         <Image
           width={150}
           height={150}
-          src={import.meta.env.VITE_API_URL + "/" + device.img}
+          src={import.meta.env.VITE_API_URL + device.img}
           alt={device.name}
           className="rounded"
         />

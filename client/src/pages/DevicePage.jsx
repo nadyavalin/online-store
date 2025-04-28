@@ -16,7 +16,7 @@ const DevicePage = () => {
     <Container className="mt-3">
       <Row>
         <Col md={4}>
-          <Image width={300} height={300} src={import.meta.env.VITE_API_URL + "/" + device.img} />
+          <Image width={300} height={300} src={import.meta.env.VITE_API_URL + device.img} />
         </Col>
         <Col md={4}>
           <Row className="d-flex flex-column align-items-center">

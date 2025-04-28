@@ -17,6 +17,8 @@ const Shop = observer(() => {
     fetchDevices().then((data) => device.setDevices(data.rows));
   }, []);
 
+  console.log("Devices in Shop:", device.devices);
+
   return (
     <Container>
       <Row className="mt-2">
