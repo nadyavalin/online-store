@@ -1,10 +1,10 @@
+import { useContext, useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import Container from "react-bootstrap/esm/Container";
 import Card from "react-bootstrap/Card";
-import { Button, Col, Form, Row } from "react-bootstrap";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/constants";
 import { login, registration } from "../http/userAPI";
-import { useContext, useState } from "react";
 import { Context } from "../main";
 
 const Auth = () => {
@@ -14,6 +14,7 @@ const Auth = () => {
   const { user } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [, setError] = useState(null);
 
   const click = async () => {
     try {
