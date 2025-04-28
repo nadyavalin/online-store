@@ -1,28 +1,22 @@
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import bigStar from "../assets/bigStar.png";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchOneDevice } from "../http/deviceAPI";
 
 const DevicePage = () => {
-  const device = {
-    id: 1,
-    name: "IPhone 12 PRO",
-    price: 100000,
-    rating: 5,
-    img: `./img/iPhone.jpg`,
-    brandId: 2,
-  };
+  const [device, setDevice] = useState({ info: [] });
+  const { id } = useParams();
 
-  const description = [
-    { id: 1, title: "RAM", description: "5GB" },
-    { id: 2, title: "Camera", description: "12Mp" },
-    { id: 3, title: "CPU", description: "Pentium 3" },
-    { id: 4, title: "Number of cores", description: "2" },
-    { id: 5, title: "Battery", description: "4000A" },
-  ];
+  useEffect(() => {
+    fetchOneDevice(id).then((data) => setDevice(data));
+  }, []);
+
   return (
     <Container className="mt-3">
       <Row>
         <Col md={4}>
-          <Image width={300} height={300} src={device.img} />
+          <Image width={300} height={300} src={import.meta.env.VITE_API_URL + "/" + device.img} />
         </Col>
         <Col md={4}>
           <Row className="d-flex flex-column align-items-center">
@@ -53,7 +47,7 @@ const DevicePage = () => {
       </Row>
       <Row className="d-flex flex-column mt-3 ms-2">
         <h3>Characteristics:</h3>
-        {description.map((info, index) => (
+        {device.info.map((info, index) => (
           <Row key={info.id} style={{ background: index % 2 === 0 ? "lightgray" : "transparent", padding: 10 }}>
             {info.title}: {info.description}
           </Row>
