@@ -13,6 +13,11 @@ export const NavBar = observer(() => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
 
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -29,14 +34,7 @@ export const NavBar = observer(() => {
               >
                 Admin Panel
               </Button>
-              <Button
-                variant="outline-dark"
-                onClick={() => {
-                  user.setIsAuth(false);
-                  navigate(LOGIN_ROUTE);
-                }}
-                className="ms-2"
-              >
+              <Button variant="outline-dark" onClick={() => logOut()} className="ms-2">
                 Log out
               </Button>
             </Nav>
@@ -45,8 +43,7 @@ export const NavBar = observer(() => {
               <Button
                 variant="outline-dark"
                 onClick={() => {
-                  user.setIsAuth(true);
-                  navigate(SHOP_ROUTE);
+                  navigate(LOGIN_ROUTE);
                 }}
               >
                 Login

@@ -6,30 +6,29 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/constants";
 import { login, registration } from "../http/userAPI";
 import { Context } from "../main";
+import { observer } from "mobx-react-lite";
 
-const Auth = () => {
+const Auth = observer(() => {
   const location = useLocation();
   const navigate = useNavigate();
   const isLogin = location.pathname === LOGIN_ROUTE;
   const { user } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [, setError] = useState(null);
 
   const click = async () => {
     try {
-      let response;
+      let data;
       if (isLogin) {
-        response = await login(email, password);
+        data = await login(email, password);
       } else {
-        response = await registration(email, password);
+        data = await registration(email, password);
       }
-      console.log("Auth response:", response);
+      user.setUser(user);
       user.setIsAuth(true);
       navigate(SHOP_ROUTE);
     } catch (e) {
       console.error("Auth error:", e.response?.data?.message || e.message);
-      setError(e.response?.data?.message || "An error occurred");
     }
   };
 
@@ -76,6 +75,6 @@ const Auth = () => {
       </Card>
     </Container>
   );
-};
+});
 
 export default Auth;
